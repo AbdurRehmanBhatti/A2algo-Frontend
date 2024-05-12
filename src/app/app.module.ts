@@ -8,13 +8,19 @@ import { ProductsComponent } from './Components/products/products.component';
 import { SalesComponent } from './Components/sales/sales.component';
 import { PurchasesComponent } from './Components/purchases/purchases.component';
 import { FormsModule } from '@angular/forms';
+import { CreateProductComponent } from './Components/products/create-product/create-product.component';
+import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
+import { DeleteProductComponent } from './Components/products/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     SalesComponent,
-    PurchasesComponent
+    PurchasesComponent,
+    CreateProductComponent,
+    EditProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,

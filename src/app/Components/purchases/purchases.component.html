@@ -1,1 +1,39 @@
-<p>purchases works!</p>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Purchase ID</th>
+        <th>Product ID</th>
+        <th>Quantity Purchased</th>
+        <th>Purchase Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let purchase of purchases">
+        <td>{{ purchase.purchaseId }}</td>
+        <td>{{ purchase.productId }}</td>
+        <td>{{ purchase.quantityPurchased }}</td>
+        <td>{{ purchase.purchaseDate | date: 'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <h2>Record Purchase</h2>
+  <form (ngSubmit)="recordPurchase()">
+    <div class="form-group">
+      <label for="productId">Product ID:</label>
+      <input type="number" class="form-control" id="productId" name="productId" [(ngModel)]="newPurchase.productId" required>
+    </div>
+    <div class="form-group">
+      <label for="quantityPurchased">Quantity Purchased:</label>
+      <input type="number" class="form-control" id="quantityPurchased" name="quantityPurchased" [(ngModel)]="newPurchase.quantityPurchased" required>
+    </div>
+    <div class="form-group">
+      <label for="purchaseDate">Purchase Date:</label>
+      <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" [(ngModel)]="newPurchase.purchaseDate" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Record Purchase</button> &nbsp;
+    <a routerLink="/products" class="btn btn-secondary">Back to Products</a>
+  </form>
+</div>

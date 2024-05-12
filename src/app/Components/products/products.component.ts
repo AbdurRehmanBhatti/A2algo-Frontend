@@ -19,7 +19,6 @@ export class ProductsComponent {
 
   ngOnInit(): void {
     this.loadProducts();
-    console.log(this.loadProducts,"Products");
   }
 
   loadProducts() {

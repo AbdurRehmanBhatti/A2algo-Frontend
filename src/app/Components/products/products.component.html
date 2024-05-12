@@ -1,34 +1,30 @@
-<h2>Product List</h2>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Quantity</th>
-    <th>Actions</th>
-  </tr>
-  <tr *ngFor="let product of products">
-    <td>{{ product.id }}</td>
-    <td>{{ product.name }}</td>
-    <td>{{ product.description }}</td>
-    <td>{{ product.quantity }}</td>
-    <td>
-      <button (click)="editProduct(product.id)">Edit</button>
-      <button (click)="deleteProduct(product.id)">Delete</button>
-    </td>
-  </tr>
-</table>
-
-<!-- Add/Edit Product Form -->
-<div *ngIf="showForm">
-  <h2>{{ formTitle }}</h2>
-  <form (ngSubmit)="saveProduct()">
-    <label>Name:</label>
-    <input type="text" [(ngModel)]="product.name" name="name" required><br>
-    <label>Description:</label>
-    <textarea [(ngModel)]="product.description" name="description" required></textarea><br>
-    <label>Quantity:</label>
-    <input type="number" [(ngModel)]="product.quantity" name="quantity" required><br>
-    <button type="submit">{{ submitButtonText }}</button>
-  </form>
+<h2 class="text-2xl font-bold mb-4">Product List</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>
+          <a [routerLink]="['/products/edit', product.id]" class="btn btn-primary">Edit</a> &nbsp;
+          <a [routerLink]="['/products/delete', product.id]" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<div class="mt-4">
+  <a [routerLink]="['/products/create']" class="btn btn-success">Create Product</a>
 </div>

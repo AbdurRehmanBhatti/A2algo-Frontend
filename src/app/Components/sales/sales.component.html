@@ -1,1 +1,25 @@
-<p>sales works!</p>
+<div>
+  <div>
+    <h2>Record New Sale</h2>
+    <form (ngSubmit)="recordSale()">
+      <div>
+        <label for="productId">Product ID:</label>
+        <input type="number" id="productId" name="productId" [(ngModel)]="newSale.productId" required>
+      </div>
+      <div>
+        <label for="quantitySold">Quantity Sold:</label>
+        <input type="number" id="quantitySold" name="quantitySold" [(ngModel)]="newSale.quantitySold" required>
+      </div>
+      <button type="submit">Record Sale</button>
+    </form>
+  </div>
+  <div style="clear: both;">
+    <h2>Get Sale by ID</h2>
+    <label for="saleId">Enter Sale ID:</label>
+    <input type="number" id="saleId" name="saleId" [(ngModel)]="saleId">
+    <button (click)="getSaleById()">Get Sale</button> &nbsp;
+  </div>
+  <div style="clear: both;">
+    <a routerLink="/products" class="btn btn-secondary">Back to Products</a>
+  </div>
+</div>

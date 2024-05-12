@@ -2,18 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../Interfaces/product';
-import { environment } from '../Environments/environments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = environment.apiUrl;
+  public apiUrl = 'https://localhost:44371/api/';
 
   constructor(private http: HttpClient) { }
 
   getAllProducts(): Observable<Product[]> {
-    debugger;
     return this.http.get<Product[]>(this.apiUrl +'Product/GetAll');
   }
 
