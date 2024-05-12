@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Sale } from 'src/app/Interfaces/sale';
 import { SaleService } from 'src/app/Services/sale.service';
 
@@ -18,7 +19,7 @@ export class SalesComponent implements OnInit {
     saleDate: new Date()
   };
 
-  constructor(private saleService: SaleService) { }
+  constructor(private saleService: SaleService, private router: Router) { }
 
   ngOnInit(): void {
     //this.loadSales();
@@ -53,7 +54,7 @@ export class SalesComponent implements OnInit {
   recordSale(): void {
     this.saleService.recordSale(this.newSale).subscribe(
       (sale: Sale) => {
-        console.log('Sale recorded successfully:', sale);
+        this.router.navigate(['/products']);
       },
       error => {
         console.error('Error recording sale:', error);

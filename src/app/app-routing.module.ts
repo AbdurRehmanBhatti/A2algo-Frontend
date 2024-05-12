@@ -9,15 +9,10 @@ import { DeleteProductComponent } from './Components/products/delete-product/del
 
 const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' }, 
-  { 
-    path: 'products', 
-    component: ProductsComponent,
-    children: [
-      { path: 'create', component: CreateProductComponent },
-      { path: 'edit/:id', component: EditProductComponent },
-      { path: 'delete/:id', component: DeleteProductComponent }
-    ]
-  },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/create', component: CreateProductComponent },
+  { path: 'products/edit/:id', component: EditProductComponent },
+  { path: 'products/delete/:id', component: DeleteProductComponent },
   { path: 'sales', component: SalesComponent },
   { path: 'purchases', component: PurchasesComponent }
 ];

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/Interfaces/product';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -15,13 +16,12 @@ export class CreateProductComponent {
     quantity: 0
   };
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   saveProduct(): void {
     this.productService.addProduct(this.product).subscribe(
       (createdProduct: Product) => {
-        console.log('Product created successfully:', createdProduct);
-        // Optionally, you can navigate to a different page after creating the product
+        this.router.navigate(['/products']);
       },
       error => {
         console.error('Error creating product:', error);

@@ -24,7 +24,6 @@ export class DeleteProductComponent {
   deleteProduct(): void {
     this.productService.deleteProduct(this.productId).subscribe(
       () => {
-        console.log('Product deleted successfully');
         this.router.navigate(['/products']);
       },
       error => {

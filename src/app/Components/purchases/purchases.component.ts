@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Purchase } from 'src/app/Interfaces/purchase';
 import { PurchaseService } from 'src/app/Services/purchase.service';
 
@@ -10,7 +11,7 @@ import { PurchaseService } from 'src/app/Services/purchase.service';
 export class PurchasesComponent {
   purchases: Purchase[] = [];
 
-  constructor(private purchaseService: PurchaseService) { }
+  constructor(private purchaseService: PurchaseService, private router: Router) { }
 
   newPurchase: Purchase = {
     purchaseId: 0,
@@ -37,7 +38,7 @@ export class PurchasesComponent {
   recordPurchase(): void {
     this.purchaseService.recordPurchase(this.newPurchase).subscribe(
       (sale: Purchase) => {
-        console.log('Purchase recorded successfully:', sale);
+        this.router.navigate(['/products']);
       },
       error => {
         console.error('Error recording sale:', error);

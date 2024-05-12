@@ -18,7 +18,7 @@
         <td>{{ product.quantity }}</td>
         <td>
           <a [routerLink]="['/products/edit', product.id]" class="btn btn-primary">Edit</a> &nbsp;
-          <a [routerLink]="['/products/delete', product.id]" class="btn btn-danger">Delete</a>
+<a [routerLink]="['/products/delete', product.id]" class="btn btn-danger">Delete</a>
         </td>
       </tr>
     </tbody>
@@ -26,5 +26,5 @@
 </div>
 <hr>
 <div class="mt-4">
-  <a [routerLink]="['/products/create']" class="btn btn-success">Create Product</a>
+  <a routerLink="/products/create" class="btn btn-success">Create Product</a>
 </div>
