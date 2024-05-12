@@ -7,13 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PurchaseService {
-
-  public apiUrl = 'https://localhost:44371/api/';
+  private apiUrl = 'https://localhost:44371/api/';
 
   constructor(private http: HttpClient) { }
 
   getAllPurchases(): Observable<Purchase[]> {
-    return this.http.get<Purchase[]>(`${this.apiUrl}/Purchase/GetAllPurchases`);
+    return this.http.get<Purchase[]>(`${this.apiUrl}Purchase/GetAllPurchases`);
   }
 
   recordPurchase(purchaseData: Purchase): Observable<Purchase> {

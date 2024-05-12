@@ -7,7 +7,7 @@ import { Product } from '../Interfaces/product';
   providedIn: 'root'
 })
 export class ProductService {
-  public apiUrl = 'https://localhost:44371/api/';
+  private apiUrl = 'https://localhost:44371/api/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,8 +16,7 @@ export class ProductService {
   }
 
   getProductById(id: number): Observable<Product> {
-    const url = `${this.apiUrl + 'Product'}/${id}`;
-    return this.http.get<Product>(url);
+    return this.http.get<Product>(`${this.apiUrl + 'Product'}/${id}`);
   }
 
   addProduct(product: Product): Observable<Product> {
@@ -25,12 +24,10 @@ export class ProductService {
   }
 
   updateProduct(id: number, product: Product): Observable<void> {
-    const url = `${this.apiUrl + 'Product/Update'}/${id}`;
-    return this.http.put<void>(url, product);
+    return this.http.put<void>(`${this.apiUrl + 'Product/Update'}/${id}`, product);
   }
 
   deleteProduct(id: number): Observable<void> {
-    const url = `${this.apiUrl + 'Product/Delete'}/${id}`;
-    return this.http.delete<void>(url);
+    return this.http.delete<void>(`${this.apiUrl + 'Product/Delete'}/${id}`);
   }
 }
